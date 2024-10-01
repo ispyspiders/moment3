@@ -9,7 +9,7 @@ namespace guestbook
         private string filename = @"guestbook.json"; // Fil att skriva till
         private List<Post> posts = new List<Post>(); // Lista med Post-objekt
 
-        
+
         public Guestbook()
         {
             if (File.Exists(filename) == false) // Om json fil inte finns
@@ -26,6 +26,23 @@ namespace guestbook
         public List<Post> GetPosts()
         {
             return posts;
+        }
+
+        public Post AddPost(string name, string message)
+        {
+            Post post = new Post();
+            post.Name = name;
+            post.Message = message;
+            posts.Add(post);
+            marshal();
+            return post;
+        }
+
+        private void marshal()
+        {
+            // Serialisera alla objekt och spara till fil
+            var jsonString = JsonSerializer.Serialize(posts);
+            File.WriteAllText(filename, jsonString);
         }
 
 
