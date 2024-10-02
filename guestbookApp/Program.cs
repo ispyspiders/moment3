@@ -19,7 +19,7 @@ namespace guestbook
                 // Skriv ut meny
                 Console.Clear();
                 Console.CursorVisible = false;
-                Console.WriteLine("KAJSAS GÄSTBOK\n\n");
+                Console.WriteLine("K A J S A S   G Ä S T B O K \n\n");
 
                 Console.WriteLine("1. Skriv i gästboken");
                 Console.WriteLine("2. Ta bort inlägg\n");
@@ -45,20 +45,26 @@ namespace guestbook
                         // Kontrollera att strängar inte är null eller tomma och lägg i så fall till inlägg i gästbok
                         if (!String.IsNullOrEmpty(name) && !String.IsNullOrEmpty(msg)) guestbook.AddPost(name, msg);
                         break;
-                    case '2':
-                        Console.CursorVisible = true;
-                        Console.Write("case 2");
+                    case '2': // Ta bort ett inlägg
+                        Console.CursorVisible = true; // Tänd cursor
+                        Console.Write("Ange index för meddelandet du vill ta bort: ");
+                        string? index = Console.ReadLine(); // Läs in index och spara i sträng
+                        if (!String.IsNullOrEmpty(index))
+                            try
+                            {
+                                guestbook.delPost(Convert.ToInt32(index));
+                            }
+                            catch (Exception)
+                            {
+                                Console.WriteLine("Index out of range! Vi hittar inget meddelande med valt index.\nTryck på valfri tangent för att fortsätta.");
+                                Console.ReadKey();
+                            }
                         break;
-                    case 88:
+                    case 88: // X för exit
                         Environment.Exit(0);
                         break;
                 }
-
-
             }
-
-
-
         }
     }
 }
