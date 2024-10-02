@@ -22,12 +22,13 @@ namespace guestbook
         }
 
 
-        // Get-metod, returnerar lista av Post-objekt     
+        // Get-metod, returnerar lista av Post(inlägg)-objekt     
         public List<Post> GetPosts()
         {
             return posts;
         }
 
+        // Metod för att lägga till inlägg i gästboken
         public Post AddPost(string name, string message)
         {
             Post post = new Post();
@@ -38,6 +39,15 @@ namespace guestbook
             return post;
         }
 
+        // Metod för att ta bort inlägg från gästboken
+        public int delPost(int index)
+        {
+            posts.RemoveAt(index);
+            marshal();
+            return index;
+        }
+
+        // Metod för serialisering och spara till json-fil
         private void marshal()
         {
             // Serialisera alla objekt och spara till fil
