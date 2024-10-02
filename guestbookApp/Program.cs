@@ -37,11 +37,12 @@ namespace guestbook
                 switch (input)
                 {
                     case '1': //Skriv i gästboken
-                        Console.CursorVisible = true;
+                        Console.CursorVisible = true; // Tänd cursor
                         Console.Write("Namn: ");
-                        string? name = Console.ReadLine();
+                        string? name = Console.ReadLine(); // Läs in namn och spara i variabel
                         Console.Write("Meddelande: ");
-                        string? msg = Console.ReadLine();
+                        string? msg = Console.ReadLine(); // Läs in meddelande och spara i variabel
+                        // Kontrollera att strängar inte är null eller tomma och lägg i så fall till inlägg i gästbok
                         if (!String.IsNullOrEmpty(name) && !String.IsNullOrEmpty(msg)) guestbook.AddPost(name, msg);
                         break;
                     case '2':
