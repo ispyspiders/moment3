@@ -46,6 +46,11 @@ namespace guestbook
                         {
                             guestbook.AddPost(name, msg); //  och lägg i så fall till inlägg i gästbok
                         }
+                        else
+                        {
+                            Console.WriteLine("\nNamn och/eller meddelande får inte vara tomma.\nTryck på valfri tangent för att fortsätta.");
+                            Console.ReadKey();
+                        }
                         break;
                     case '2': // Ta bort ett inlägg
                         Console.CursorVisible = true; // Tänd cursor
@@ -72,12 +77,27 @@ namespace guestbook
                                         }
                                         catch (Exception)
                                         {
-                                            Console.WriteLine("Index out of range! Vi hittar inget meddelande med valt index.\nTryck på valfri tangent för att fortsätta.");
+                                            Console.WriteLine("\nIndex out of range! Vi hittar inget meddelande med valt index.\nTryck på valfri tangent för att fortsätta.");
                                             Console.ReadKey();
                                         }
                                     }
                                 }
+                                else
+                                {
+                                    Console.WriteLine($"\nDet finns inget meddelande med index [{result}].\nTryck på valfri tangent för att fortsätta.");
+                                    Console.ReadKey();
+                                }
                             }
+                            else
+                            {
+                                Console.WriteLine("\nIndex måste vara ett heltal.\nTryck på valfri tangent för att fortsätta.");
+                                Console.ReadKey();
+                            }
+                        }
+                        else
+                        {
+                            Console.WriteLine("\nNamn och/eller meddelande får inte vara tomma.\nTryck på valfri tangent för att fortsätta.");
+                            Console.ReadKey();
                         }
                         break;
                     case 88: // X för exit
