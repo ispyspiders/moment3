@@ -48,7 +48,10 @@ namespace guestbook
                         }
                         else
                         {
-                            Console.WriteLine("\nNamn och/eller meddelande får inte vara tomma.\nTryck på valfri tangent för att fortsätta.");
+                            Console.ForegroundColor = ConsoleColor.Red; // Sätt textfärg till röd.
+                            Console.WriteLine("\nNamn och/eller meddelande får inte vara tomma.");
+                            Console.ResetColor(); // Återställ textfärg
+                            Console.WriteLine("Tryck på valfri tangent för att fortsätta.");
                             Console.ReadKey();
                         }
                         break;
@@ -77,26 +80,39 @@ namespace guestbook
                                         }
                                         catch (Exception)
                                         {
-                                            Console.WriteLine("\nIndex out of range! Vi hittar inget meddelande med valt index.\nTryck på valfri tangent för att fortsätta.");
+                                            Console.ForegroundColor = ConsoleColor.Red; // Sätt textfärg till röd
+                                            Console.WriteLine($"\nIndex out of range! Vi hittar inget meddelande med index [{index}].");
+                                            Console.ResetColor(); // Återställ textfärg
+                                            Console.WriteLine("Tryck på valfri tangent för att fortsätta.");
                                             Console.ReadKey();
                                         }
                                     }
                                 }
                                 else
                                 {
-                                    Console.WriteLine($"\nDet finns inget meddelande med index [{result}].\nTryck på valfri tangent för att fortsätta.");
+                                    Console.ForegroundColor = ConsoleColor.Red; // Sätt textfärg till röd
+                                    Console.WriteLine($"\nDet finns inget meddelande med index [{result}].");
+                                    Console.ResetColor(); // Återställ textfärg
+                                    Console.WriteLine("Tryck på valfri tangent för att fortsätta.");
+
                                     Console.ReadKey();
                                 }
                             }
                             else
                             {
-                                Console.WriteLine("\nIndex måste vara ett heltal.\nTryck på valfri tangent för att fortsätta.");
+                                Console.ForegroundColor = ConsoleColor.Red; // Sätt textfärg till röd
+                                Console.WriteLine("\nIndex måste vara ett heltal.");
+                                Console.ResetColor(); // Återställ textfärg
+                                Console.WriteLine("Tryck på valfri tangent för att fortsätta.");
                                 Console.ReadKey();
                             }
                         }
                         else
                         {
-                            Console.WriteLine("\nNamn och/eller meddelande får inte vara tomma.\nTryck på valfri tangent för att fortsätta.");
+                            Console.ForegroundColor = ConsoleColor.Red; // Sätt textfärg till röd
+                            Console.WriteLine("\nIndex måste anges.");
+                            Console.ResetColor(); // Återställ textfärg
+                            Console.WriteLine("Tryck på valfri tangent för att fortsätta.");
                             Console.ReadKey();
                         }
                         break;
