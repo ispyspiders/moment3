@@ -37,6 +37,8 @@ namespace guestbook
                 switch (input)
                 {
                     case '1': //Skriv i gästboken
+                        Console.Clear();
+                        Console.WriteLine("S K R I V   I   G Ä S T B O K \n\n");
                         Console.CursorVisible = true; // Tänd cursor
                         Console.Write("\nNamn: ");
                         string? name = Console.ReadLine(); // Läs in namn och spara i variabel
@@ -56,6 +58,16 @@ namespace guestbook
                         }
                         break;
                     case '2': // Ta bort ett inlägg
+                        Console.Clear();
+                        Console.WriteLine("R A D E R A   I N L Ä G G\n\n");
+
+                        i = 0;
+                        // Skriv ut alla inlägg
+                        foreach (Post post in guestbook.GetPosts())
+                        {
+                            Console.WriteLine($"[{i++}] {post.Name} - {post.Message}");
+                        }
+
                         Console.CursorVisible = true; // Tänd cursor
                         Console.Write("\nAnge index för meddelandet du vill ta bort: ");
                         string? index = Console.ReadLine(); // Läs in index och spara i sträng
